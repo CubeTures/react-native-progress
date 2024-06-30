@@ -138,6 +138,19 @@ export class ProgressCircle extends Component {
               : undefined
           }
         >
+          {border ? (
+            <Arc
+              fill={fill}
+              radius={size / 2}
+              startAngle={0}
+              endAngle={(indeterminate ? endAngle * 2 : 2) * Math.PI}
+              stroke={borderColor || color}
+              strokeCap={strokeCap}
+              strokeWidth={border}
+            />
+          ) : (
+            false
+          )}
           {unfilledColor && progressValue !== 1 ? (
             <Shape
               fill={fill}
@@ -163,19 +176,6 @@ export class ProgressCircle extends Component {
               stroke={color}
               strokeCap={strokeCap}
               strokeWidth={thickness}
-            />
-          ) : (
-            false
-          )}
-          {border ? (
-            <Arc
-              fill={fill}
-              radius={size / 2}
-              startAngle={0}
-              endAngle={(indeterminate ? endAngle * 2 : 2) * Math.PI}
-              stroke={borderColor || color}
-              strokeCap={strokeCap}
-              strokeWidth={border}
             />
           ) : (
             false
